@@ -9,11 +9,14 @@ cask "netlogs" do
 
   # Netlogs is ad-hoc signed, not notarized — notarization needs the paid Apple
   # Developer Program, and the App Store is ruled out anyway because the App
-  # Sandbox blocks ICMP. Install with --no-quarantine, or take the one-time
-  # trip through System Settings > Privacy & Security > Open Anyway.
+  # Sandbox blocks ICMP. So the first launch needs one trip through System
+  # Settings > Privacy & Security > Open Anyway.
   #
-  # A cask cannot waive quarantine on the user's behalf; that is deliberate on
-  # Homebrew's part, so the flag has to come from whoever installs.
+  # There is no way around that from here. Homebrew 6 removed --no-quarantine,
+  # and HOMEBREW_CASK_OPTS does not bring it back (measured: the staged app
+  # still carries com.apple.quarantine). Stripping it from a postflight block
+  # would "work" and is deliberately not done — silently disabling a Gatekeeper
+  # check on someone else's machine is not a thing a cask should do.
   depends_on macos: :sequoia
 
   app "Netlogs.app"
