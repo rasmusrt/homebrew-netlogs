@@ -14,7 +14,7 @@ cask "netlogs" do
   #
   # A cask cannot waive quarantine on the user's behalf; that is deliberate on
   # Homebrew's part, so the flag has to come from whoever installs.
-  depends_on macos: ">= :sequoia"
+  depends_on macos: :sequoia
 
   app "Netlogs.app"
 
