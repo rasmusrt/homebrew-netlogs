@@ -18,9 +18,13 @@ be tapped and trusted explicitly before it will load a cask from it.
 **The first launch will be refused**, once. Netlogs is ad-hoc signed rather
 than notarized — notarization requires the paid Apple Developer Program, and
 the Mac App Store is not an alternative because the App Sandbox blocks the ICMP
-sockets the app is built around. So macOS quarantines the download. Open the
-app, let it be refused, then go to **System Settings → Privacy & Security →
-Open Anyway**. After that it launches normally, until the next version.
+sockets the app is built around. So macOS quarantines the download and shows a
+dialog saying it cannot verify the developer.
+
+**Click Cancel. Do not click "Move to Trash"** — it is the prominent button,
+and it deletes the app. Then open **System Settings → Privacy & Security**,
+scroll to **Security**, and click **Open Anyway** next to the Netlogs message.
+It launches, and keeps launching normally until the next version.
 
 Homebrew used to offer `--no-quarantine` for exactly this. Version 6 removed
 it, and `HOMEBREW_CASK_OPTS` does not bring it back — measured, not assumed.
