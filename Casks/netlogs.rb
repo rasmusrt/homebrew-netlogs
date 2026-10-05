@@ -7,16 +7,8 @@ cask "netlogs" do
   desc "Router and internet latency monitor with throughput tests"
   homepage "https://github.com/rasmusrt/netlogs"
 
-  # Netlogs is ad-hoc signed, not notarized — notarization needs the paid Apple
-  # Developer Program, and the App Store is ruled out anyway because the App
-  # Sandbox blocks ICMP. So the first launch needs one trip through System
-  # Settings > Privacy & Security > Open Anyway.
-  #
-  # There is no way around that from here. Homebrew 6 removed --no-quarantine,
-  # and HOMEBREW_CASK_OPTS does not bring it back (measured: the staged app
-  # still carries com.apple.quarantine). Stripping it from a postflight block
-  # would "work" and is deliberately not done — silently disabling a Gatekeeper
-  # check on someone else's machine is not a thing a cask should do.
+  # Signed with a Developer ID and notarized, so Gatekeeper opens it without a
+  # prompt. Not on the Mac App Store: the App Sandbox blocks ICMP.
   depends_on macos: :sequoia
 
   app "Netlogs.app"
