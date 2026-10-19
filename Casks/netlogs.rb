@@ -1,6 +1,6 @@
 cask "netlogs" do
-  version "0.1.1"
-  sha256 "cbcb8e34d79b10530e101f101a5ec54ac4413aba9f7ca330c05e6354acda78d0"
+  version "0.2.0"
+  sha256 "a834d3ad4fe12a33bf1246223f4349d994864f6b9329ed5362866a3319c583a4"
 
   url "https://github.com/rasmusrt/netlogs/releases/download/v#{version}/Netlogs-#{version}.zip"
   name "Netlogs"
